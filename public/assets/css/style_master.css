@@ -5,6 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  background-color: #eee;
 }
 
 
@@ -33,7 +34,28 @@ body {
 .sidebar {
   display: none;
 }
+
+@media (max-width: @screen-sm-max) { 
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
 @media (min-width: 768px) {
+  #menu-toggle {
+    display:none;
+  }
+
   .sidebar {
     position: fixed;
     top: 51px;
@@ -102,4 +124,58 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+
+/* Round Boxes */
+
+.rounded-box {
+  border-radius: 4px;
+  background-color: #FCF7FF;
+  margin-bottom: 20px;
+}
+
+/* Colored Text */
+
+.green {
+  color: #008000;
+}
+
+/* Colored Background */
+  /* Red */
+  .bg-red {
+    color: #FFF;
+    background-color: #ff0033 !important;
+  }
+
+  tr.bg-red td {
+    color: #FFF;
+    background-color: #ff0033 !important;
+  }
+
+  /* Yellow */
+  .bg-yellow {
+    color: #000;
+    background-color: #FFCC00 !important;
+  }
+
+  tr.bg-yellow td {
+    color: #000;
+    background-color: #FFCC00 !important;
+  }
+
+/* hidden */
+
+.hidden {
+  display: none;
+}
+
+#div-report {
+  display: none; /* hide printable version */
+}
+
+
+/* Datepicker always infront*/
+#ui-datepicker-div {
+  z-index:9999 !important;
 }

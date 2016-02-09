@@ -43,11 +43,25 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('/');
 		}
 	}
 });
 
+Route::filter('admin', function()
+{
+	if (Auth::guest())
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('/');
+		}
+	}
+});
 
 Route::filter('auth.basic', function()
 {
@@ -83,8 +97,41 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
+	$token = Request::ajax() ? Request::header('X-CSRF-Token') : Input::get('_token');
+    if (Session::token() !== $token)
+        throw new Illuminate\Session\TokenMismatchException;
+});
+
+/* Role Filters */
+
+Route::filter('auth.admin', function()
+{
+	$role = Auth::user()->role;
+
+	if($role != 1) {
+		return Response::make('Unauthorized', 401);	
 	}
+
+});
+
+Route::filter('auth.owner', function()
+{
+	$role = Auth::user()->role;
+
+	if($role > 2) {
+		return Response::make('Unauthorized', 401);	
+	}
+
+});
+
+Route::when('admin/*', 'auth.admin');
+
+/* Set Branch */
+
+Route::filter('branch', function()
+{
+	if (!Session::has('branch') && URL::route('get-settings') != URL::route(Route::currentRouteName())) {
+		return Redirect::route('get-settings') -> with('message', 'Please configure client.');
+	}
+
 });

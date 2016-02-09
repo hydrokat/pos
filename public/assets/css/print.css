@@ -1,0 +1,13 @@
+@media print {
+    .table-report {
+        width: 100%;
+    }
+
+    body > :not(#div-report){
+        display: none;
+    }
+
+    #div-report {
+        display: block;
+    }
+}

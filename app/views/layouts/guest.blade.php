@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="_token" content="{{ csrf_token() }}" />
+    <title>POS System</title>
 </head>
 <body>
     <div class="container">

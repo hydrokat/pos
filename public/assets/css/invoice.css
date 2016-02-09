@@ -1,0 +1,33 @@
+@media print {
+    table td{
+        font-size: .7em;
+    }
+
+    #logo {
+        font-size: 12px;
+    }
+
+    #invoice-type {
+        font-size: 1em;
+    }
+
+    #invoice-info {
+        font-size: 1.5em;
+    }
+}
+
+table td{
+    font-size: .8em;
+}
+
+#logo {
+    font-size: 1.5em;
+}
+
+#invoice-type {
+    font-size: 2em;
+}
+
+#invoice-info {
+    font-size: 1.5em;
+}
