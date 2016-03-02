@@ -1,4 +1,4 @@
-php_flag magic_quotes_gpc Offs
+#php_flag magic_quotes_gpc Offs
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
@@ -6,6 +6,7 @@ php_flag magic_quotes_gpc Offs
     </IfModule>
 
     RewriteEngine On
+    RewriteBase /demo/POSPharm
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]

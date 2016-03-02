@@ -20,8 +20,8 @@ class CreateTransfersTable extends Migration {
 			$tbl -> boolean('inOrOut');
 			$tbl -> string('from');
 			$tbl -> string('to');
-			$tbl -> string('p_code');
-			$tbl -> string('lotNo');
+			$tbl -> string('p_code', 20);
+			$tbl -> string('lotNo', 20);
 			$tbl -> date('expiry');
 			$tbl -> string('type');
 			$tbl -> integer('quantity');

@@ -14,8 +14,8 @@ class CreateInventoryTable extends Migration {
 	{
 		Schema::create('inventory', function($tbl) {
 			$tbl -> increments('id');
-			$tbl -> string('p_code');
-			$tbl -> string('lotNo') -> default(00000);
+			$tbl -> string('p_code', 20);
+			$tbl -> string('lotNo', 20) -> default(00000);
 			$tbl -> date('expiry') -> default('2030-01-01');
 			$tbl -> integer('branchID');
 			$tbl -> string('supplier')->nullable();

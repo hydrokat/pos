@@ -14,12 +14,12 @@ class CreateItemsTable extends Migration {
 	{
 		Schema::create('items', function($tbl) {
 			$tbl -> increments('id');
-			$tbl -> string('p_code');
+			$tbl -> string('p_code', 20);
 			$tbl -> string('name') -> default("ProductName");
 			$tbl -> string('desc') -> nullable();
 			$tbl -> string('size') -> nullable();
 			$tbl -> string('category') -> default('med'); //csm,med,msp,lab,labsup,meq
-			$tbl -> string('lotNo') -> default(00000);
+			$tbl -> string('lotNo', 20) -> default(00000);
 			$tbl -> date('expiry') -> default('2030-01-01');
 			$tbl -> integer('inventory_threshold') -> default(5);
 			$tbl -> double('price_retail') -> default(0);

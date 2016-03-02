@@ -14,13 +14,13 @@ class CreateEndingInvTable extends Migration {
 	{
 		Schema::create('endingInv', function($tbl) {
 			$tbl -> increments('id');
-			$tbl -> string('p_code');
-			$tbl -> string('lotNo');
+			$tbl -> string('p_code', 20);
+			$tbl -> string('lotNo', 20);
 			$tbl -> date('expiry');
 			$tbl -> integer('branchID');
 			$tbl -> date('date');
 			$tbl -> integer('retail');
-			$tbl -> integer('packages');			
+			$tbl -> integer('packages');
 
 			$tbl -> unique(array('p_code', 'lotNo', 'expiry', 'branchID' ,'date'));
 		});

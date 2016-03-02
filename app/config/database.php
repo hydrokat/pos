@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'db_pos',
-			'username'  => 'root',
-			'password'  => 'root',
+			'database'  => 'techsrcp_pospharm',
+			'username'  => 'techsrcp_demo',
+			'password'  => 'n*V%T9LFI)7]HJ6M1P',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'tbl_pos_',
