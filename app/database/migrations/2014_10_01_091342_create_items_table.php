@@ -24,6 +24,7 @@ class CreateItemsTable extends Migration {
 			$tbl -> integer('inventory_threshold') -> default(5);
 			$tbl -> double('price_retail') -> default(0);
 			$tbl -> double('price_package') -> default(0);
+			$tbl -> integer('branchID');
 			$tbl -> timestamps();
 			$tbl -> softDeletes();
 			$tbl -> unique(array('p_code', 'expiry' ,'lotNo'));

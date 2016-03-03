@@ -6,7 +6,6 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteBase /demo/POSPharm
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]

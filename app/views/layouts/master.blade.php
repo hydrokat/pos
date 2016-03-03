@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="_token" content="{{ csrf_token() }}" />
     <title>POS</title>
-    
+
+    <!-- CSS Dependencies -->
+    {{HTML::style('assets/css/bootstrap.min.css')}}
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,7 +29,7 @@
             <li>{{ link_to('/settings', 'Settings') }}</li>
             <li>{{ link_to('/acct/chpw', Auth::user() -> name) }}</li>
             <li>{{ link_to('/logout', 'Logout') }}</li>
-          </ul>          
+          </ul>
         </div>
       </div>
     </div>
@@ -47,7 +50,7 @@
             <li>{{ link_to_route('sales-report', 'Sales Report') }}</li>
             <li>{{link_to_route('inv-report', 'Inventory Report')}}</a></li>
             <li>{{link_to_route('trans-report', 'Transfers Report')}}</a></li>
-            @if(Auth::user()->role <= 2)              
+            @if(Auth::user()->role <= 2)
                 <li>{{link_to_route('get-invoice', 'Sales Invoices')}}</a></li>
                 <li>{{link_to_route('get-dinvoice', 'Delivery Invoices')}}</a></li>
             @endif
@@ -80,8 +83,7 @@
     {{HTML::script('assets/jqui/jquery-ui.min.js')}}
     {{HTML::script('assets/js/bootbox.min.js')}}
     {{HTML::script('assets/js/masterscript.js')}}
-    
-    {{HTML::style('assets/css/bootstrap.min.css')}}
+
     {{HTML::style('assets/jqui/jquery-ui.min.css')}}
     {{HTML::style('assets/jqui/jquery-ui.theme.min.css')}}
     {{HTML::style('assets/css/style_master.css')}}

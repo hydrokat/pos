@@ -55,7 +55,7 @@ class ItemsController extends BaseController {
                             -> where('items.p_code', '=' , $code)
                             -> where('inventory.branchID', '=', $branchid)
                             -> first();
-                    }                    
+                    }
                 } else {
                     $item = DB::table('items') -> join('inventory', function($j) use ($lot, $exp){
                                 $j -> on('items.p_code', '=', 'inventory.p_code')
@@ -72,7 +72,7 @@ class ItemsController extends BaseController {
                     echo "No item has been found with Pcode: " . $code . "<br> Lot: " . $lot . "<br> Expiration: " . $exp;
                 } else {
                     echo json_encode($item);
-                }                
+                }
             } else {
                 echo "Hi, this is your item: <br />";
 
@@ -137,10 +137,12 @@ class ItemsController extends BaseController {
             $item -> price_package       = Input::get('input-pPkg');
 
             $inv -> p_code               = Input::get('input-pcode');
+            $inv -> lotNo                = Input::get('input-lot');
+            $inv -> expiry              = Input::get('input-exp');
             $inv -> packages             = Input::get('input-qtyRet');
             $inv -> retail               = Input::get('input-qtyPkg');
             $inv -> supplier             = Input::get('input-supplier');
-            $inv -> acquisition_price   = Input::get('input-pAcq');
+            $inv -> acquisition_price    = Input::get('input-pAcq');
 
             $item -> save();
             $inv -> save();
@@ -239,7 +241,7 @@ class ItemsController extends BaseController {
 
         if (!$validator -> fails()) {
             $transfer = new Transfers;
-        
+
             $transfer -> datetime    = $date;
             $transfer -> cashierName = Auth::user() -> name;
             $transfer -> from        = $from;
@@ -255,7 +257,7 @@ class ItemsController extends BaseController {
             $invoiceNumber = $transfer -> invoiceNumber;
 
             $transfer -> save();
-            
+
             $msg = "An item has been transferred. ";
             if($ioo == "In"){
                 $msg .= "<br />Product Code: " . $p_code;

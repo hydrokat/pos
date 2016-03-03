@@ -14,12 +14,13 @@
           <input type="checkbox" name="remember"> Remember me
         </label>
       </div>
+      <a href="#" onclick="alert('Dedicated to Thea. <3')"><3</a>
     {{ Form::close() }}
 
 @stop
 
 @section('assets')
-    
-    {{HTML::style('assets/css/style_login.css')}}
+
+    {{HTML::style('assets/css/style_login.css',[], !App::isLocal())}}
 
 @stop

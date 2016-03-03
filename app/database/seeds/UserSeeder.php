@@ -17,7 +17,7 @@ class UserSeeder extends Seeder {
                   'password'   => Hash::make('ownerpw'),
                   'name'       => 'Store Owner',
                   'role'       => 2,
-                  'expiry'     => date('Y-m-d', strtotime('03/15/2015')),
+                  'expiry'     => date('Y-m-d', strtotime('03/15/2018')),
                   'created_at' => date('Y-m-d H:i:s'),
                   'updated_at' => date('Y-m-d H:i:s'),
 
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder {
                   'password'   => Hash::make('ruby123123'),
                   'name'       => 'Ruby',
                   'role'       => 3,
-                  'expiry'     => date('Y-m-d', strtotime('03/15/2015')),
+                  'expiry'     => date('Y-m-d', strtotime('03/15/2018')),
                   'created_at' => date('Y-m-d H:i:s'),
                   'updated_at' => date('Y-m-d H:i:s'),
             ),
